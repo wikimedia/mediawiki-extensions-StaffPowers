@@ -13,6 +13,7 @@ $messages = array();
  */
 $messages['en'] = array(
 	'staffpowers-ipblock-abort' => 'Blocking ShoutWiki staff is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with our staff.',
+	'staffpowers-steward-block-abort' => 'Blocking stewards is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with the wiki\'s stewards.',
 	'right-unblockable' => 'Cannot be blocked',
 );
 
@@ -58,6 +59,7 @@ $messages['es'] = array(
  */
 $messages['fi'] = array(
 	'staffpowers-ipblock-abort' => 'ShoutWikin henkilökunnan estäminen ei ole mahdollista. Käytä [[Special:Contact|yhteydenottolomaketta]] ilmoittaaksesi mahdollisista ongelmista henkilökuntamme kanssa.',
+	'staffpowers-steward-block-abort' => 'Ylivalvojien estäminen ei ole mahdollista. Käytä [[Special:Contact|yhteydenottolomaketta]] ilmoittaaksesi mahdollisista ongelmista wikin ylivalvojien kanssa.',
 	'right-unblockable' => 'Ei voi tulla estetyksi',
 );
 
