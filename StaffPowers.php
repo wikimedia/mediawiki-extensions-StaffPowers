@@ -43,8 +43,9 @@ $wgGroupPermissions['staff']['unblockable'] = true;
  */
 function efPowersMakeUnblockable( $block, $user, $reason ) {
 	$blockedUser = User::newFromName( $block->getRedactedName() );
+	$userIsSteward = in_array( 'steward', $blockedUser->getEffectiveGroups() );
 
-	if ( empty( $blockedUser ) || !$blockedUser->isAllowed( 'unblockable' ) ) {
+	if ( empty( $blockedUser ) || !$blockedUser->isAllowed( 'unblockable' ) && !$userIsSteward ) {
 		return true;
 	}
 
@@ -54,7 +55,6 @@ function efPowersMakeUnblockable( $block, $user, $reason ) {
 	// Display a custom reason as to why blocking the specified user isn't
 	// possible instead of the totally unhelpful, default core message
 	$userIsStaff = in_array( 'staff', $blockedUser->getEffectiveGroups() );
-	$userIsSteward = in_array( 'steward', $blockedUser->getEffectiveGroups() );
 	$blockerIsStaff = in_array( 'staff', $user->getEffectiveGroups() );
 
 	// Don't allow staff to be blocked in any circumstances
@@ -64,6 +64,13 @@ function efPowersMakeUnblockable( $block, $user, $reason ) {
 		// and also don't allow stewards to be blocked by non-staff, as per IRC
 		// discussion on 19 January 2014
 		$reason = array( 'staffpowers-steward-block-abort' );
+	} elseif ( $userIsSteward && $blockerIsStaff ) {
+		// This is a possible scenario - staff are allowed to block stewards.
+		// We need to address this situation 'cause this function returns false
+		// by default, so w/o this elseif loop, staff trying to block a steward
+		// will bump into the default core hookaborted message and the block
+		// will fail.
+		return true;
 	}
 
 	return false;
