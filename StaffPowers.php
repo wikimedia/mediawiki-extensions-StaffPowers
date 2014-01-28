@@ -5,8 +5,8 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.1
- * @date 19 January 2014
+ * @version 1.2
+ * @date 28 January 2014
  * @author Łukasz Garczewski <tor@wikia-inc.com>
  * @author Jack Phoenix <jack@countervandalism.net>
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 3.0 or later
@@ -21,7 +21,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'StaffPowers',
-	'version' => '1.1',
+	'version' => '1.2',
 	'author' => array( 'Łukasz Garczewski', 'Jack Phoenix' ),
 	'description' => 'Applies staff powers, like unblockableness, superhuman strength and general awesomeness to [[Special:ListUsers/staff|select users]]',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:StaffPowers',
@@ -43,9 +43,17 @@ $wgGroupPermissions['staff']['unblockable'] = true;
  */
 function efPowersMakeUnblockable( $block, $user, $reason ) {
 	$blockedUser = User::newFromName( $block->getRedactedName() );
-	$userIsSteward = in_array( 'steward', $blockedUser->getEffectiveGroups() );
 
-	if ( empty( $blockedUser ) || !$blockedUser->isAllowed( 'unblockable' ) && !$userIsSteward ) {
+	if ( empty( $blockedUser ) ) {
+		return true;
+	}
+
+	if ( User::isIP( $blockedUser ) ) {
+		return true;
+	}
+
+	$userIsSteward = in_array( 'steward', $blockedUser->getEffectiveGroups() );
+	if ( !$blockedUser->isAllowed( 'unblockable' ) && !$userIsSteward ) {
 		return true;
 	}
 
