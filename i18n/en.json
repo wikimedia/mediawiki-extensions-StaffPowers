@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Łukasz Garczewski (TOR) <tor@wikia-inc.com>"
+		]
+	},
+	"staffpowers-ipblock-abort": "Blocking ShoutWiki staff is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with our staff.",
+	"staffpowers-steward-block-abort": "Blocking stewards is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with the wiki's stewards.",
+	"right-unblockable": "Cannot be blocked"
+}

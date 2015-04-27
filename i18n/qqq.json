@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lloffiwr"
+		]
+	},
+	"staffpowers-ipblock-abort": "Do not translate (but do add additional text if you like) <nowiki>[[Special:Contact</nowiki>'''|optional additional text'''<nowiki>]]</nowiki>.",
+	"right-unblockable": "Description of the user right, shown on [[Special:ListGroupRights]]"
+}

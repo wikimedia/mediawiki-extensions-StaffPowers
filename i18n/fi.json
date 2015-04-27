@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix <jack@countervandalism.net>"
+		]
+	},
+	"staffpowers-ipblock-abort": "ShoutWikin henkilökunnan estäminen ei ole mahdollista. Käytä [[Special:Contact|yhteydenottolomaketta]] ilmoittaaksesi mahdollisista ongelmista henkilökuntamme kanssa.",
+	"staffpowers-steward-block-abort": "Ylivalvojien estäminen ei ole mahdollista. Käytä [[Special:Contact|yhteydenottolomaketta]] ilmoittaaksesi mahdollisista ongelmista wikin ylivalvojien kanssa.",
+	"right-unblockable": "Ei voi tulla estetyksi"
+}
