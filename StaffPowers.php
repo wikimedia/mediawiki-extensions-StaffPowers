@@ -54,7 +54,7 @@ function efPowersMakeUnblockable( $block, $user, $reason ) {
 	}
 
 	// This exists for interoperability purposes with Wikia's StaffLog extension
-	wfRunHooks( 'BlockIpStaffPowersCancel', array( $block, $user ) );
+	Hooks::run( 'BlockIpStaffPowersCancel', array( $block, $user ) );
 
 	// Display a custom reason as to why blocking the specified user isn't
 	// possible instead of the totally unhelpful, default core message
