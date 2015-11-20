@@ -1,0 +1,34 @@
+{
+	"name": "StaffPowers",
+	"version": "1.3",
+	"author": [
+		"Łukasz Garczewski",
+		"Jack Phoenix"
+	],
+	"license-name": "GPL-2.0+",
+	"url": "https://www.mediawiki.org/wiki/Extension:StaffPowers",
+	"description": "Applies staff powers, like unblockableness, superhuman strength and general awesomeness to [[Special:ListUsers/staff|select users]]",
+	"type": "other",
+	"MessagesDirs": {
+		"StaffPowers": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"StaffPowers": "StaffPowers.class.php"
+	},
+	"Hooks": {
+		"BlockIp": [
+			"StaffPowers::makeUnblockable"
+		]
+	},
+	"AvailableRights": [
+		"unblockable"
+	],
+	"GroupPermissions": {
+		"staff": {
+			"unblockable": true
+		}
+	},
+	"manifest_version": 1
+}
