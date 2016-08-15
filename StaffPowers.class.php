@@ -16,6 +16,9 @@
 class StaffPowers {
 
 	/**
+	 * Makes staff members completely unblockable and stewards unblockable by
+	 * non-staff users.
+	 *
 	 * @param Block $block The Block object about to be saved
 	 * @param User $user The user _doing_ the block (not the one being blocked)
 	 * @param array $reason Custom reason as to why blocking isn't possible
