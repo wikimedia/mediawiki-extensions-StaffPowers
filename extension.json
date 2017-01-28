@@ -7,7 +7,7 @@
 	],
 	"license-name": "GPL-2.0+",
 	"url": "https://www.mediawiki.org/wiki/Extension:StaffPowers",
-	"description": "Applies staff powers, like unblockableness, superhuman strength and general awesomeness to [[Special:ListUsers/staff|select users]]",
+	"descriptionmsg": "staffpowers-desc",
 	"type": "other",
 	"MessagesDirs": {
 		"StaffPowers": [
