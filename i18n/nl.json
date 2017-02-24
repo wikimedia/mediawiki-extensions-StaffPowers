@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"Mainframe98"
 		]
 	},
-	"staffpowers-ipblock-abort": "Het blokkeren van medewerkers van ShoutWiki is niet mogelijk. Gebruik het [[Special:Contact|contactformulier]] om problemen met onze medewerkers aan ons door te geven."
+	"staffpowers-desc": "Geeft stafrechten, zoals uitgezonderd zijn van blokkades, bovenmenselijke sterkte en geweldigheid in het algemeen voor [[Special:ListUsers/staff|geselecteerde gebruikers]]",
+	"staffpowers-ipblock-abort": "Het blokkeren van medewerkers van ShoutWiki is niet mogelijk. Gebruik het [[Special:Contact|contactformulier]] om problemen of problemen met onze medewerkers aan ons door te geven.",
+	"staffpowers-steward-block-abort": "Het blokkeren van stewards is niet mogelijk. Gebruik het [[Special:Contact|contactformulier]] om problemen of problemen met de stewards van deze wiki aan ons door te geven.",
+	"staffpowers-unblockable-abort": "Het blokkeren van deze gebruiker is niet mogelijk omdat deze uitgezonderd is van blokkades.",
+	"right-unblockable": "Uitgezonderd zijn van blokkades"
 }

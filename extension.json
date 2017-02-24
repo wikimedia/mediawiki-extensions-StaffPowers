@@ -1,9 +1,10 @@
 {
 	"name": "StaffPowers",
-	"version": "1.3",
+	"version": "1.4",
 	"author": [
 		"Łukasz Garczewski",
-		"Jack Phoenix"
+		"Jack Phoenix",
+		"Mainframe98"
 	],
 	"license-name": "GPL-2.0+",
 	"url": "https://www.mediawiki.org/wiki/Extension:StaffPowers",
@@ -29,6 +30,10 @@
 		"staff": {
 			"unblockable": true
 		}
+	},
+	"config": {
+		"StaffPowersStewardGroupName": "steward",
+		"StaffPowersShoutWikiMessages": true
 	},
 	"manifest_version": 1
 }

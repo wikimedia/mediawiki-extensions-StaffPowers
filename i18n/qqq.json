@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lloffiwr"
+			"Lloffiwr",
+			"Mainframe98"
 		]
 	},
 	"staffpowers-desc": "{{desc|name=StaffPowers|url=https://www.mediawiki.org/wiki/Extension:StaffPowers}}",
 	"staffpowers-ipblock-abort": "Do not translate (but do add additional text if you like) <nowiki>[[Special:Contact</nowiki>'''|optional additional text'''<nowiki>]]</nowiki>.",
 	"staffpowers-steward-block-abort": "Error message shown when blocking a steward.",
+	"staffpowers-unblockable-abort": "Error message shown when blocking a user with the <kbd>unblockable</kbd> user right.",
 	"right-unblockable": "{{doc-right|unblockable}}"
 }
