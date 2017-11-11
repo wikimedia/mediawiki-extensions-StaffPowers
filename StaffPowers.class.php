@@ -8,7 +8,7 @@
  * @version 1.4
  * @date 23 February 2017
  * @author Łukasz Garczewski <tor@wikia-inc.com>
- * @author Jack Phoenix <jack@countervandalism.net>
+ * @author Jack Phoenix
  * @author Mainframe98 <mainframe98@outlook.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 3.0 or later
  * @link https://www.mediawiki.org/wiki/Extension:StaffPowers Documentation
