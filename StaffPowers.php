@@ -10,7 +10,7 @@
  * @author Łukasz Garczewski <tor@wikia-inc.com>
  * @author Jack Phoenix
  * @author Mainframe98 <mainframe98@outlook.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 3.0 or later
+ * @license GPL-3.0-or-later
  * @link https://www.mediawiki.org/wiki/Extension:StaffPowers Documentation
  */
 
@@ -20,9 +20,9 @@ class StaffPowers {
 	 * Makes users with the unblockable right (staff members) completely unblockable and stewards
 	 * unblockable by non-staff users.
 	 *
-	 * @param Block $block The Block object about to be saved
-	 * @param User $user The user _doing_ the block (not the one being blocked)
-	 * @param array $reason Custom reason as to why blocking isn't possible
+	 * @param Block &$block The Block object about to be saved
+	 * @param User &$user The user _doing_ the block (not the one being blocked)
+	 * @param array &$reason Custom reason as to why blocking isn't possible
 	 * @return bool
 	 */
 	public static function makeUnblockable( &$block, &$user, &$reason ) {
@@ -67,12 +67,11 @@ class StaffPowers {
 			}
 		}
 
-		//Override the reason message when not run on ShoutWiki
+		// Override the reason message when not run on ShoutWiki
 		if ( !$wgStaffPowersShoutWikiMessages ) {
 			$reason = [ 'staffpowers-unblockable-abort' ];
 		}
 
 		return false;
 	}
-
 }

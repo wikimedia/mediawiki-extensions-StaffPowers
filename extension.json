@@ -16,7 +16,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"StaffPowers": "StaffPowers.class.php"
+		"StaffPowers": "StaffPowers.php"
 	},
 	"Hooks": {
 		"BlockIp": [
