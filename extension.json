@@ -10,6 +10,9 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:StaffPowers",
 	"descriptionmsg": "staffpowers-desc",
 	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.34.0"
+	},
 	"MessagesDirs": {
 		"StaffPowers": [
 			"i18n"
