@@ -14,6 +14,8 @@
  * @link https://www.mediawiki.org/wiki/Extension:StaffPowers Documentation
  */
 
+use MediaWiki\MediaWikiServices;
+
 class StaffPowers {
 
 	/**
@@ -29,7 +31,8 @@ class StaffPowers {
 		global $wgStaffPowersStewardGroupName, $wgStaffPowersShoutWikiMessages;
 		$blockedUser = User::newFromName( $block->getRedactedName() );
 
-		if ( empty( $blockedUser ) || User::isIP( $blockedUser ) ) {
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+		if ( empty( $blockedUser ) || $userNameUtils->isIP( $blockedUser ) ) {
 			return true;
 		}
 
