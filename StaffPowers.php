@@ -38,7 +38,10 @@ class StaffPowers {
 
 		$userIsSteward = false;
 		if ( !empty( $wgStaffPowersStewardGroupName ) ) {
-			$userIsSteward = in_array( $wgStaffPowersStewardGroupName, $blockedUser->getEffectiveGroups() );
+			$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
+			$userIsSteward = in_array(
+				$wgStaffPowersStewardGroupName, $userGroupManager->getUserEffectiveGroups( $blockedUser )
+			);
 		}
 
 		$userIsUnblockable = $blockedUser->isAllowed( 'unblockable' );
