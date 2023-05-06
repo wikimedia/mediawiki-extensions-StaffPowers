@@ -50,7 +50,7 @@ class StaffPowers {
 		}
 
 		// This exists for interoperability purposes with Wikia's StaffLog extension
-		Hooks::run( 'BlockIpStaffPowersCancel', [ $block, $user ] );
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BlockIpStaffPowersCancel', [ $block, $user ] );
 
 		// Display a custom reason as to why blocking the specified user isn't
 		// possible instead of the totally unhelpful, default core message
