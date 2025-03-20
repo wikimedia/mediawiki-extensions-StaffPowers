@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Justman10000",
 			"PtM"
 		]
 	},
-	"staffpowers-ipblock-abort": "Sperren von ShoutWiki-Personal ist nicht möglich. Bitte benutze das [[Special:Contact|Kontaktformular]], um irgendwelche Fragen oder Probleme mit einem unserer Mitarbeiter zu melden."
+	"staffpowers-desc": "Wendet Mitarbeiter-Kräfte wie Unblockierbarkeit, übermenschliche Stärke und allgemeine Ehrfurcht auf [[Special:ListUsers/staff|auserwählte Benutzer]] an",
+	"staffpowers-ipblock-abort": "Das Sperren von Mitarbeitern ist nicht möglich. Bitte verwende das [[Special:Contact|Kontaktformular]], um Fragen oder Probleme an unsere Mitarbeiter zu melden.",
+	"staffpowers-steward-block-abort": "Das Sperren von Stewards ist nicht möglich. Bitte verwende das [[Special:Contact|Kontaktformular]], um Fragen oder Probleme an die Stewards des Wikis zu melden.",
+	"staffpowers-unblockable-abort": "Die Sperrung dieses Benutzers ist nicht möglich, da er von der Sperrung ausgenommen wurde.",
+	"right-unblockable": "Kann nicht gesperrt werden"
 }

@@ -6,7 +6,7 @@
 		]
 	},
 	"staffpowers-desc": "Applies staff powers, like unblockableness, superhuman strength and general awesomeness to [[Special:ListUsers/staff|select users]]",
-	"staffpowers-ipblock-abort": "Blocking ShoutWiki staff is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with our staff.",
+	"staffpowers-ipblock-abort": "Blocking staff is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with our staff.",
 	"staffpowers-steward-block-abort": "Blocking stewards is not possible. Please use the [[Special:Contact|contact form]] to report any issues or problems with the wiki's stewards.",
 	"staffpowers-unblockable-abort": "Blocking this user is not possible because they have been exempted from being blocked.",
 	"action-unblockable": "cannot be blocked",
