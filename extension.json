@@ -1,6 +1,6 @@
 {
 	"name": "StaffPowers",
-	"version": "1.4",
+	"version": "1.5",
 	"author": [
 		"Łukasz Garczewski",
 		"Jack Phoenix",
@@ -11,20 +11,29 @@
 	"descriptionmsg": "staffpowers-desc",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"MessagesDirs": {
 		"StaffPowers": [
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"StaffPowers": "StaffPowers.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\StaffPowers\\": "includes/"
 	},
 	"Hooks": {
-		"BlockIp": [
-			"StaffPowers::makeUnblockable"
-		]
+		"BlockIp": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\StaffPowers\\Hooks",
+			"services": [
+				"UserFactory",
+				"UserNameUtils",
+				"UserGroupManager",
+				"HookContainer"
+			]
+		}
 	},
 	"AvailableRights": [
 		"unblockable"
@@ -35,8 +44,14 @@
 		}
 	},
 	"config": {
-		"StaffPowersStewardGroupName": "steward",
-		"StaffPowersShoutWikiMessages": true
+		"StaffPowersStewardGroupName": {
+			"description": "Internal name of the 'steward' user group",
+			"value": "steward"
+		},
+		"StaffPowersShoutWikiMessages": {
+			"description": "Whether to use ShoutWiki-specific i18n messages (true) or not (false)",
+			"value": true
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

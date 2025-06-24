@@ -5,8 +5,8 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.4
- * @date 23 February 2017
+ * @version 1.5
+ * @date 24 June 2025
  * @author Łukasz Garczewski <tor@wikia-inc.com>
  * @author Jack Phoenix
  * @author Mainframe98 <mainframe98@outlook.com>
@@ -14,33 +14,49 @@
  * @link https://www.mediawiki.org/wiki/Extension:StaffPowers Documentation
  */
 
-use MediaWiki\MediaWikiServices;
+namespace MediaWiki\Extension\StaffPowers;
 
-class StaffPowers {
+use MediaWiki\Hook\BlockIpHook;
+
+class Hooks implements BlockIpHook {
+	/**
+	 * @param MediaWiki\User\UserFactory $userFactory
+	 * @param MediaWiki\User\UserNameUtils $userNameUtils
+	 * @param MediaWiki\User\UserGroupManager $userGroupManager
+	 * @param MediaWiki\HookContainer\HookContainer $hookContainer
+	 */
+	public function __construct( $userFactory, $userNameUtils, $userGroupManager, $hookContainer ) {
+		$this->userFactory = $userFactory;
+		$this->userNameUtils = $userNameUtils;
+		$this->userGroupManager = $userGroupManager;
+		$this->hookContainer = $hookContainer;
+	}
 
 	/**
 	 * Makes users with the unblockable right (staff members) completely unblockable and stewards
 	 * unblockable by non-staff users.
 	 *
-	 * @param Block &$block The Block object about to be saved
-	 * @param User &$user The user _doing_ the block (not the one being blocked)
+	 * @param Block $block The Block object about to be saved
+	 * @param User $user The user _doing_ the block (not the one being blocked)
 	 * @param array &$reason Custom reason as to why blocking isn't possible
 	 * @return bool
 	 */
-	public static function makeUnblockable( &$block, &$user, &$reason ) {
+	public function onBlockIp( $block, $user, &$reason ) {
 		global $wgStaffPowersStewardGroupName, $wgStaffPowersShoutWikiMessages;
-		$blockedUser = User::newFromName( $block->getRedactedName() );
 
-		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-		if ( empty( $blockedUser ) || $userNameUtils->isIP( $blockedUser ) ) {
+		$blockedUser = $this->userFactory->newFromName( $block->getRedactedName() );
+		if ( !$blockedUser ) {
+			return true;
+		}
+
+		if ( empty( $blockedUser ) || $this->userNameUtils->isIP( $blockedUser ) ) {
 			return true;
 		}
 
 		$userIsSteward = false;
 		if ( !empty( $wgStaffPowersStewardGroupName ) ) {
-			$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
 			$userIsSteward = in_array(
-				$wgStaffPowersStewardGroupName, $userGroupManager->getUserEffectiveGroups( $blockedUser )
+				$wgStaffPowersStewardGroupName, $this->userGroupManager->getUserEffectiveGroups( $blockedUser )
 			);
 		}
 
@@ -50,7 +66,7 @@ class StaffPowers {
 		}
 
 		// This exists for interoperability purposes with Wikia's StaffLog extension
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'BlockIpStaffPowersCancel', [ $block, $user ] );
+		$this->hookContainer->run( 'BlockIpStaffPowersCancel', [ $block, $user ] );
 
 		// Display a custom reason as to why blocking the specified user isn't
 		// possible instead of the totally unhelpful, default core message
