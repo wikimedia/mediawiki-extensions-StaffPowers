@@ -19,6 +19,15 @@ namespace MediaWiki\Extension\StaffPowers;
 use MediaWiki\Hook\BlockIpHook;
 
 class Hooks implements BlockIpHook {
+	/** @var MediaWiki\User\UserFactory */
+	private $userFactory;
+	/** @var MediaWiki\User\UserNameUtils */
+	private $userNameUtils;
+	/** @var MediaWiki\User\UserGroupManager */
+	private $userGroupManager;
+	/** @var MediaWiki\HookContainer\HookContainer */
+	private $hookContainer;
+
 	/**
 	 * @param MediaWiki\User\UserFactory $userFactory
 	 * @param MediaWiki\User\UserNameUtils $userNameUtils
